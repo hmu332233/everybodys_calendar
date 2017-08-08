@@ -28,38 +28,36 @@
   <script src='/resource/js/lib/fullcalendar.js'></script>
 
   <script>
-$('#calendar').fullCalendar({
-	dayClick: function() {
-		alert('a day has been clicked!');
-	},
-	defaultDate: '2014-11-12',
-	lang: 'ko',
+  $(function() {
+    $.ajax({
+      method: "GET",
+      url: "/events/index",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      success: function(data){
+        alert("success");
+        setCalendar(data);
+      },
+      error: function(){
+        alert("fail");
+      }
+    });
+  });
 
-	editable: true,
+  
+  function setCalendar(data){
+    $('#calendar').fullCalendar({
+    	dayClick: function() {
+    		alert('a day has been clicked!');
+    	},
+    // 	defaultDate: '2014-11-12',
+    	lang: 'ko',
+    	editable: true,
+      events: data
+    });
+  }
+  
 
-	// allow "more" link when too many events
-     events: [
-		{
-			title: 'All Day Event',
-			start: '2014-11-01'
-		},
-		{
-			title: 'Long Event',
-			start: '2014-11-07',
-			end: '2014-11-10'
-		},
-		{
-			id: 999,
-			title: 'Repeating Event',
-			start: '2014-11-09T16:00:00'
-		},
-		{
-			title: 'Click for Google',
-			url: '/123',
-			start: '2014-11-28'
-		}
-	]
-});
   </script>
 </body>
 </html>
