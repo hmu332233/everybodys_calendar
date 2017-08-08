@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+  <link rel='stylesheet' href='/resource/css/fullcalendar.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+<body>
+    
+<div class="row">
+  <div class="col-2" style="background:#000000">s</div>
+  <div class="col-8">
+    <%= yield %>
+  </div>
+  <div class="col-2" style="background:#a60cdc">s</div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <script src='/resource/js/lib/jquery.min.js'></script>
+  <script src='/resource/js/lib/moment.min.js'></script>
+  <script src='/resource/js/lib/fullcalendar.js'></script>
+
+  <script>
+$('#calendar').fullCalendar({
+	dayClick: function() {
+		alert('a day has been clicked!');
+	},
+	defaultDate: '2014-11-12',
+	lang: 'ko',
+
+	editable: true,
+
+	// allow "more" link when too many events
+     events: [
+		{
+			title: 'All Day Event',
+			start: '2014-11-01'
+		},
+		{
+			title: 'Long Event',
+			start: '2014-11-07',
+			end: '2014-11-10'
+		},
+		{
+			id: 999,
+			title: 'Repeating Event',
+			start: '2014-11-09T16:00:00'
+		},
+		{
+			title: 'Click for Google',
+			url: '/123',
+			start: '2014-11-28'
+		}
+	]
+});
+  </script>
+</body>
+</html>

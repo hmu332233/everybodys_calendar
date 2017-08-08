@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
+  get 'events/show'
+
+  get 'events/delete'
+
+  get 'events/update'
+
+  get 'events/create'
+
+  get 'events/edit'
+
+  get 'calendars/index'
+
+  get 'calendars/show'
+
+  get 'calendars/create'
+
+  get 'calendars/update'
+
+  get 'calendars/delete'
+
+  get 'calendars/edit'
+
+  get 'calendars/new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
