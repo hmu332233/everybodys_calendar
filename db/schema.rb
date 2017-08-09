@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170809104112) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
+    t.string   "content"
     t.string   "start"
     t.string   "end"
     t.string   "url"
