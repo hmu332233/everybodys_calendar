@@ -10,7 +10,7 @@
   $(function() {
     $.ajax({
       method: "GET",
-      url: "/calendars/1/events",
+      url: "/calendars/<%= @calendar_id %>/events",
       dataType : "json",
       contentType: "application/json; charset=utf-8",
       success: function(data){

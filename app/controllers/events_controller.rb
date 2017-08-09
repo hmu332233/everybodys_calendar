@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
-    render json: Event.all.to_json
+    
+    render json: Calendar.find(params[:calendar_id]).events.to_json
   end
   
   def new
