@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+  <%= csrf_meta_tags %>
+  <link rel='stylesheet' href='/resource/css/fullcalendar.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+<body>
+    
+<div class="row">
+  <div class="col-2" style="background:#000000">s</div>
+  <div class="col-8">
+    <%= yield %>
+  </div>
+  <div class="col-2" style="background:#a60cdc">s</div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <script src='/resource/js/lib/jquery.min.js'></script>
+  <script src='/resource/js/lib/moment.min.js'></script>
+  <script src='/resource/js/lib/fullcalendar.js'></script>
+
+  <script>
+  $(function() {
+    $.ajax({
+      method: "GET",
+      url: "/events/index",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      success: function(data){
+        alert("success");
+        setCalendar(data);
+      },
+      error: function(){
+        alert("fail");
+      }
+    });
+  });
+
+  
+  function setCalendar(data){
+    $('#calendar').fullCalendar({
+    	dayClick: function() {
+    		alert('a day has been clicked!');
+    	},
+    // 	defaultDate: '2014-11-12',
+    	lang: 'ko',
+    	editable: true,
+      events: data
+    });
+  }
+  
+
+  </script>
+</body>
+</html>

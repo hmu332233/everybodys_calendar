@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'events/update'
 
-  get 'events/create'
+  post '/events' => 'events#create'
 
   get 'events/edit'
 
