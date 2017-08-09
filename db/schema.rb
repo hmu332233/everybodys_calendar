@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809104112) do
+ActiveRecord::Schema.define(version: 20170809114510) do
+
+  create_table "calendars", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "event2tags", force: :cascade do |t|
     t.integer  "event_id"
@@ -26,8 +32,9 @@ ActiveRecord::Schema.define(version: 20170809104112) do
     t.string   "start"
     t.string   "end"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "calendar_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "hash_tags", force: :cascade do |t|

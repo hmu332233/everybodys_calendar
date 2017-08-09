@@ -2,3 +2,41 @@
 <p>Find me in app/views/calendars/show.html.erb</p>
 
 <div id='calendar'>d</div>
+
+<%= render 'shared/js' %>
+
+
+<script>
+  $(function() {
+    $.ajax({
+      method: "GET",
+      url: "/calendars/1/events",
+      dataType : "json",
+      contentType: "application/json; charset=utf-8",
+      success: function(data){
+        // alert("success");
+        for(var i in data){
+            var event = data[i];
+            event.url = `/events/${event.id}`
+        }
+        setCalendar(data);
+      },
+      error: function(){
+        alert("fail");
+      }
+    });
+  });
+
+  
+  function setCalendar(data){
+    $('#calendar').fullCalendar({
+    	dayClick: function() {
+    		alert('a day has been clicked!');
+    	},
+    // 	defaultDate: '2014-11-12',
+    	lang: 'ko',
+    	editable: true,
+      events: data
+    });
+  }
+</script>
