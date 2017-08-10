@@ -1,0 +1,9 @@
+<%= form_tag("/events", method: "post") do %>
+
+  <div class="form-group">
+    <labe>HashTag</label>
+    <input type="text" class="form-control" name="hash_tag" id="tokenfield" value="red,green,blue" />
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>

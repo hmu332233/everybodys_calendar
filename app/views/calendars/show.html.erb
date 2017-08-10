@@ -2,7 +2,7 @@
 <p>Find me in app/views/calendars/show.html.erb</p>
 
 <div id='calendar'>d</div>
-
+<a href="/calendars/<%= @calendar_id %>/events/new">일정 등록</a>
 <%= render 'shared/js' %>
 
 
@@ -17,6 +17,7 @@
         // alert("success");
         for(var i in data){
             var event = data[i];
+            console.log(event);
             event.url = `/events/${event.id}`
         }
         setCalendar(data);

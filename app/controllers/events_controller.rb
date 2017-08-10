@@ -24,11 +24,21 @@ class EventsController < ApplicationController
     _content = params[:content]
     _start = params[:start]
     _end = params[:end]
+    _hash_tag_names = params[:hash_tag].split(', ')
     
-    Event.create(title: _title, content: _content, start: _start, end: _end, calendar_id: _calendar_id)
+    hash_tags = HashTag.find_by_name_or_save(_hash_tag_names)
+    
+    event = Event.new(title: _title, content: _content, start: _start, end: _end, calendar_id: _calendar_id)
+    event.hash_tags = hash_tags
+    event.save
+    
     redirect_to calendar_path(_calendar_id)
   end
 
   def edit
   end
+  
+  #---
+  
+  
 end

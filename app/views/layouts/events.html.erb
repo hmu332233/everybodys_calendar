@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <link rel='stylesheet' href='/resource/css/fullcalendar.css' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
+  <link rel='stylesheet' href='/resource/css/hash_tag/bootstrap-tokenfield.css'/>
 </head>
 <body>
     
@@ -16,7 +16,8 @@
   <div class="col-8">
     <%= yield %>
   </div>
-  <div class="col-2" style="background:#a60cdc">s</div>
+  <div class="col-2" style="background:#a60cdc">
+  </div>
 </div>
 
 <%= render 'shared/js' %>

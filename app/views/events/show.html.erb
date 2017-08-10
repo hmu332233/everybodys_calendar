@@ -4,3 +4,8 @@
 <p>내용 : <%= @event.content %></p>
 <p>시작 날짜 : <%= @event.start %></p>
 <p>끝 날짜 : <%= @event.end %></p>
+<p>해시 태그 : 
+<% @event.hash_tags.each do |hash_tag| %>
+  <%= hash_tag.name%> <br/>
+<% end %>
+</p>

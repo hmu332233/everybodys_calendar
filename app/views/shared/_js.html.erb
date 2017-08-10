@@ -5,3 +5,16 @@
   <script src='/resource/js/lib/jquery.min.js'></script>
   <script src='/resource/js/lib/moment.min.js'></script>
   <script src='/resource/js/lib/fullcalendar.js'></script>
+  
+  <script src='/resource/js/hash_tag/bootstrap-tokenfield.js'></script>
+  
+  <script>
+    $('#tokenfield').tokenfield({
+      beautify: true
+    });
+    
+    $('#tokenfield').on('tokenfield:createtoken', function (e) {
+      // alert(e.attrs.value);
+    });
+    
+  </script>

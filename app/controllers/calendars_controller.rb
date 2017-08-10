@@ -4,7 +4,6 @@ class CalendarsController < ApplicationController
 
   def show
     @calendar_id = params[:id]
-    puts @calendar_id
   end
 
   def create
