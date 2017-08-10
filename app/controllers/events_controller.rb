@@ -40,5 +40,15 @@ class EventsController < ApplicationController
   
   #---
   
-  
+  def findByHashTag
+    _calendar_id = params[:calendar_id]
+    _hash_tag_names = params[:hash_tag].split(', ')
+    
+    events = []
+    _hash_tag_names.each do |hash_tag_name|
+      events += Event.find_by_tag_name_at_calendar(_calendar_id, hash_tag_name)
+    end
+    events.uniq!{|e| e.id }
+    render json: events.to_json
+  end
 end
