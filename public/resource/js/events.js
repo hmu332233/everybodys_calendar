@@ -61,14 +61,16 @@ function setCalendar(data){
 //해시태그로 업데이트
 function updatedByHashTag(_calendar_id,hash_tags){
   console.log(_calendar_id,hash_tags);
-  alert('test');
+  
+  if(hash_tags === '' ) return removeAll();
+  
   $.ajax({
     method: "GET",
     url: `/calendars/${_calendar_id}/events/hash_tags/${hash_tags}`,
     dataType : "json",
     contentType: "application/json; charset=utf-8",
     success: function(data){
-      alert("success");
+      // alert("success");
       for(var i in data){
         var event = data[i];
         console.log(event);
@@ -92,4 +94,8 @@ function updateEvents(data){
   //   'refetchEventSources', 
   //   data 
   // );
+};
+
+function removeAll(){
+  $('#calendar').fullCalendar( 'removeEvents' );
 };
