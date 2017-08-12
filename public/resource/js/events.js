@@ -1,28 +1,16 @@
 
 $(document).ready(function () {
 
-  // initCalendar();
+  var parser2 = document.createElement('a');
+  parser2.href = document.URL;
+  var calendar_id = parser2.pathname.split('/')[2];
+  
+  console.log('calendar_id : ', calendar_id);
+	
+	initCalendar(calendar_id);
 	
   $('#search').click(function () {
-    alert('test');
-    $.ajax({
-      method: "GET",
-      url: `/calendars/1/events/hash_tags/테스트, 감자튀김`,
-      dataType : "json",
-      contentType: "application/json; charset=utf-8",
-      success: function(data){
-        alert("success");
-        for(var i in data){
-          var event = data[i];
-          console.log(event);
-          event.url = `/events/${event.id}`
-        }
-        updateEvents(data);
-      },
-      error: function(){
-        alert("fail");
-      }
-    });   
+    updatedByHashTag(calendar_id,'테스트, 감자튀김, test')
   });
 
   // 편집 종료
@@ -68,6 +56,30 @@ function setCalendar(data){
   	editable: true,
     events: data
   });
+};
+
+//해시태그로 업데이트
+function updatedByHashTag(_calendar_id,hash_tags){
+  console.log(_calendar_id,hash_tags);
+  alert('test');
+  $.ajax({
+    method: "GET",
+    url: `/calendars/${_calendar_id}/events/hash_tags/${hash_tags}`,
+    dataType : "json",
+    contentType: "application/json; charset=utf-8",
+    success: function(data){
+      alert("success");
+      for(var i in data){
+        var event = data[i];
+        console.log(event);
+        event.url = `/events/${event.id}`
+      }
+      updateEvents(data);
+    },
+    error: function(){
+      alert("fail");
+    }
+  });   
 };
 
 //이벤트 
