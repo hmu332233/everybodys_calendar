@@ -1,0 +1,19 @@
+<div class="pt-3 pt-md-4 pt-md-4 mx-2- d-flex flex-row flex-wrap">
+    <div class="calendar_box col-12 col-sm-6 col-md-3 mx-3 my-2">
+		<div class="d-flex align-items-center h-100 ">
+    		<div class="text-center font-size-sm w-100">
+        		<a id="calendar_add_btn" href="/calendars/new">달력 추가</a>
+    		</div>
+		</div>
+	</div>
+    <% @calendars.each do |calender| %>
+    <div class="calendar_box col-12 col-sm-6 col-md-3 mx-3 my-2">
+		<div class="d-flex align-items-center h-100 ">
+    		<div class="text-center font-size-sm w-100">
+        		<a href="/calendars/<%= calender.id %>"><%= calender.name %></a>
+    		</div>
+		</div>
+	</div>
+    <% end %>
+
+</div>

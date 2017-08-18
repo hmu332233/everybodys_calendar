@@ -13,6 +13,37 @@
 
 ActiveRecord::Schema.define(version: 20170816103915) do
 
+  create_table "calendars", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event2tags", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "hash_tag_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "content"
+    t.string   "start"
+    t.string   "end"
+    t.string   "url"
+    t.integer  "calendar_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "hash_tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -26,8 +57,10 @@ ActiveRecord::Schema.define(version: 20170816103915) do
     t.text     "message"
     t.text     "referrer"
     t.text     "params"
-    t.strftime "created_at"
-    t.strftime "updated_at"
+
+    t.datetime "created_at"
+    t.datetime "updated_at"
+
   end
 
   add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
