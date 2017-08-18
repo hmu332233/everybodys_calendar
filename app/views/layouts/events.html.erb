@@ -2,31 +2,54 @@
 <html>
 <head>
   <title>Workspace</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
   <link rel='stylesheet' href='/resource/css/fullcalendar.css' />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel='stylesheet' href='/resource/css/hash_tag/bootstrap-tokenfield.css'/>
+  <link rel='stylesheet' href='/resource/css/landing-page.css'/>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 </head>
 <body>
 
 <%= render 'shared/nav' %>
-
-<div class="row">
+<div class="container">
+<div class="row mt-3">
   <div class="col-2" >
-    <div class="h-25" style="background:#f9f9fb;">여기에 사용자 화면</div>
-    <div class="h-75"><%= render 'shared/calendar_list' %></div>
+    <div class="" ><%= render 'shared/user_profile' %></div>
+    <div class=""><%= render 'shared/calendar_list' %></div>
   </div>
   <div class="col-7 h-100">
     <%= yield %>
   </div>
-  <div class="col-3 p-0" style="background:#f9f9fb;">
+  <div class="col-3 p-0" >
     <div class="h-25"><%= render 'shared/search' %></div>
     <div class="h-75"><%= render 'shared/question' %></div>
   </div>
 </div>
+</div>
+<!-- Footer -->
+<footer>
+<div class="container">
+	<ul style="text-align: center" class="list-inline">
+		<li class="list-inline-item">
+		<a style="color:#FF7661" href="#">Main view</a>
+		</li>
+		<li class="footer-menu-divider list-inline-item">&sdot;</li>
+		<li class="list-inline-item">
+		<a style="color:#FF7661" href="#about">일정등록</a>
+		</li>
+		<li class="footer-menu-divider list-inline-item">&sdot;</li>
+		<li class="list-inline-item">
+		<a style="color:#FF7661" href="#services">Q&A</a>
+		</li>
+	</ul>
+	<p style="text-align: center" class="copyright text-muted small">
+		Developed by Min woong, Sang min, Na young, Seung mi
+	</p>
+</div>
+</footer>
 <%= render '/shared/js' %>
-
 </body>
 </html>

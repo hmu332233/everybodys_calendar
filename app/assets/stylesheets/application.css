@@ -15,14 +15,14 @@
  */
 
 
-body{
-    background-color: #E8F5FF;
-}
-
 nav{
 
 }
 
 body{
-    background-color:#FFE4DF;
+    /*background-color:#FFE4DF;*/
+}
+
+a{
+    color: #000;
 }
