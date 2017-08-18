@@ -10,16 +10,23 @@
   <link rel='stylesheet' href='/resource/css/hash_tag/bootstrap-tokenfield.css'/>
 </head>
 <body>
-    
+
+<%= render 'shared/nav' %>
+
 <div class="row">
-  <div class="col-2" style="background:#000000">s</div>
-  <div class="col-8">
+  <div class="col-2" >
+    <div class="h-25" style="background:#f9f9fb;">여기에 사용자 화면</div>
+    <div class="h-75"><%= render 'shared/calendar_list' %></div>
+  </div>
+  <div class="col-7 h-100">
     <%= yield %>
   </div>
-  <div class="col-2" style="background:#a60cdc">
+  <div class="col-3 p-0" style="background:#f9f9fb;">
+    <div class="h-25"><%= render 'shared/search' %></div>
+    <div class="h-75"><%= render 'shared/question' %></div>
   </div>
 </div>
+<%= render '/shared/js' %>
 
-<%= render 'shared/js' %>
 </body>
 </html>

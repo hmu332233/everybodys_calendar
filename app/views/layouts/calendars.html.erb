@@ -10,15 +10,20 @@
   <link rel='stylesheet' href='/resource/css/hash_tag/bootstrap-tokenfield.css'/>
 </head>
 <body>
-    
+
+<%= render 'shared/nav' %>
+
 <div class="row">
-  <div class="col-2" style="background:#000000">s</div>
-  <div class="col-8">
+  <div class="col-2" >
+    <div class="" ><%= render 'shared/user_profile' %></div>
+    <div class="h-75"><%= render 'shared/calendar_list' %></div>
+  </div>
+  <div class="col-7 h-100">
     <%= yield %>
   </div>
-  <div class="col-2 d-flex align-content-stretch flex-wrap" style="background:#a60cdc">
-    <div><%= render 'shared/search' %></div>
-    <div><%= render 'shared/question' %></div>
+  <div class="col-3 p-0" >
+    <div class="h-25"><%= render 'shared/search' %></div>
+    <div class="h-75"><%= render 'shared/question' %></div>
   </div>
 </div>
 <%= render '/shared/js' %>
