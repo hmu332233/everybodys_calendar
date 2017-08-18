@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'post/index'
-  get 'post/new'
-  get 'post/create'
+  get 'posts/index'
+  get 'posts/new'
+  get 'posts/create'
   
-  get 'post/:id' => 'post#show'
+  get 'posts/:id' => 'posts#show'
 
-  get '/post/:id/edit'=> 'post#edit'
-  get '/post/:id/update' => 'post#update'
-  get '/post/:id/delete' => 'post#delete'
+  get '/posts/:id/edit'=> 'posts#edit'
+  get '/posts/:id/update' => 'posts#update'
+  get '/posts/:id/delete' => 'posts#delete'
 
   
   

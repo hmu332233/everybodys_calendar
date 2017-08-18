@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
 
   before_action :log_impression, :only=> [:show]
  
@@ -21,7 +21,7 @@ end
     
     Post.create(title: _title, writer: _writer, content: _content)
     
-    redirect_to "/post/index"
+    redirect_to "/posts/index"
     
   end
   
@@ -31,7 +31,7 @@ end
     post = Post.find(id)
     post.delete
     
-    redirect_to "/post/index"
+    redirect_to "/posts/index"
     
   end
   
@@ -51,7 +51,7 @@ end
     post = Post.find(_id)
     
     post.update(title: _title, writer: _writer, content: _content)
-    redirect_to "/post/index"
+    redirect_to "/posts/index"
   end
   
   def new

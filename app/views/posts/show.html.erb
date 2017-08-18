@@ -1,12 +1,6 @@
 <section class="container py-3">
 <script type="text/javascript">
-    // $(document).ready(function()
-    // {
-    //   $("#show").click(function()
-    //   {
-    //     $("p").hide();
-    //   });
-    // });
+
     function display()
     {
       if(document.all.reply.style.visibility == "hidden")
@@ -36,9 +30,9 @@
 			</p>
 		</div>
 		<div class="align-self-end font-weight-light font-size-sm">
-			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/post/<%=@post.id%>/edit">수정하기</a>
-			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/post/<%=@post.id%>/delete">삭제하기</a>
-			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/post/index">목록으로</a>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/<%=@post.id%>/edit">수정하기</a>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/<%=@post.id%>/delete">삭제하기</a>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/index">목록으로</a>
 		</div>
 		<!-- comments -->
 		<div class="mt-2 font-size-sm" id="testt">
