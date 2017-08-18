@@ -1,0 +1,91 @@
+<style>
+
+#intro {
+    height: 100%;
+}
+
+body{
+  background-color: #f8f9fa;
+}
+
+</style>
+<body>
+
+<div class="container pt-3 mb-5">
+    <div class="row">
+        <div class="col-12 col-sm-10 mx-auto mt-5">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-3">
+                    <h1 class="mb-3"><strong>Modoo's Calendar</strong></h1>
+                    <p class="lead">모든 스케줄을 한눈에!</p>
+                </div>
+                <div class="col-lg-3">
+                  </div>
+                <div class="col-lg-6">
+
+                    <div class="card" id="card_sponsor">
+                        <div class="card-body">
+                            <div class="row p-3">
+                                <div class="col-12">
+                                
+                                
+                                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                   <div class="form-group">
+                                    <div class="field">
+                                      <%= f.label :email, class: "text-uppercase" %><br />
+                                      <%= f.email_field :email, autofocus: true, class: "form-control form-control-lg", placeholder: "Enter Your E-Mail." %>
+                                    </div>
+                            
+                                    <div class="field">
+                                      <%= f.label :password, class: "text-uppercase" %><br />
+                                      <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-lg", tabindex: "2", placeholder: "Enter Your Password." %>
+                                    </div>
+                                    
+                                    <% if devise_mapping.rememberable? -%>
+                                      <div class="field">
+                                      <%= f.check_box :remember_me %>
+                                      <%= f.label :remember_me %>
+                                      </div>
+                                    <% end -%>
+                            
+                                    <div class="actions text-center">
+                                        <%= f.submit "Log in",  class: "text-uppercase btn btn-secondary" %>
+                                    </div>
+                                    <%= render "devise/shared/links" %>
+                                  </div>
+                                  
+                                <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                  </div>
+                  <div class="col-lg-3">
+                    </div>
+                </div>
+            </div><!--/row-->
+        </div><!--col-->
+    </div><!--row-->
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <ul style="text-align: center" class="list-inline">
+          <li class="list-inline-item">
+            <a style="color:#FF7661" href="#">Main view</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a  style="color:#FF7661" href="#about">일정등록</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a  style="color:#FF7661" href="#services">Q&A</a>
+          </li>
+         
+        </ul>
+        <p style="text-align: center" class="copyright text-muted small">Developed by Min woong,  Sang min,  Na young,  Seung mi</p>
+      </div>
+    </footer>
+</body>

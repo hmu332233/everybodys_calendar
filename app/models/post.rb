@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+
     has_many :impressions, :as=>:impressionable
  
 def impression_count
@@ -13,3 +14,4 @@ end
 
 
   end
+
