@@ -1,2 +1,8 @@
-<h1>Calendars#new</h1>
-<p>Find me in app/views/calendars/new.html.erb</p>
+<%= form_tag("/calendars", method: "post") do %>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>
