@@ -1,14 +1,83 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<section class="container py-3">
+<script type="text/javascript">
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+    function display()
+    {
+      if(document.all.reply.style.visibility == "hidden")
+      {
+        document.all.reply.style.visibility = "visible";
+      }
+      else
+      {
+        document.all.reply.style.visibility = "hidden"
+      }
+    }
+</script>
+<div class="pt-4 mt-2 mb-5">
+	<div class="pt-2 pt-sm-3 pt-lg-4 px-3 px-sm-4 px-lg-5 pb-2 pb-lg-3 mb-4 bg-white b-gray-1 br-5px d-flex flex-column font-weight-light">
+		<h4 class="my-2 my-lg-3 font-weight-light">
+		<%=@post.title%>
+		</h4>
+		<hr class="my-2 my-lg-3 w-100">
+		<div class="align-self-end font-size-sm">
+			<span class="ml-2 ml-md-3 ml-lg-4"><a class="text-color-slate text-color-slate-hover"><%=@post.writer %></a></span>
+			<span class="ml-2 ml-md-3 ml-lg-4"><%=@post.updated_at.in_time_zone("Seoul").strftime('%c') %></span>
+			<span class="ml-2 ml-md-3 ml-lg-4"><%=@post.unique_impression_count %>명 읽음</span>
+		</div>
+		<div class="my-3">
+			<p>
+				<%=@post.content %>
+			</p>
+		</div>
+		<div class="align-self-end font-weight-light font-size-sm">
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/<%=@post.id%>/edit">수정하기</a>
+			 <td><%= link_to '삭제하기', "/posts/#{@post.id}", method: "DELETE", class:"my-2 ml-2 ml-md-3 text-color-slate"%></td>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts">목록으로</a>
+		</div>
+		<!-- comments -->
+		<div class="mt-2 font-size-sm" id="testt">
+			 댓글 <span id="comments-count-Post-98">0</span>
+		</div>
+		<hr class="my-2 my-lg-3 w-100">
+		<div id="post-comments-Post-98">
+		</div>
+	</div>
+	<form class="new_comment" id="new_comment" action="/comments" accept-charset="UTF-8" data-remote="true" method="post">
+		<input name="utf8" type="hidden" value="✓">
+		<input type="hidden" value="98" name="comment[commentable_id]" id="comment_commentable_id">
+		<input type="hidden" value="Post" name="comment[commentable_type]" id="comment_commentable_type">
+		<div class="text-left ml-4">
+			<input type="button" id="show" onclick="display()" ; name="commit" value="답변하기:)" class="btn btn-thin btn-secondary" data-disable-with="답변하기:)">
+		</div>
+			</form>
+		
+		<%= form_tag("/events", method: "post") do %>
+		<div id="reply" style="visibility:hidden" class="ml-4 mt-4">
+			<div class="form-group">
+				<input type="hidden" name="calendar_id" value="<%=@calendar_id %>"> <label>제목</label>
+				<input type="text"  style="width: 300px;" class="form-control" name="title">
+			</div>
+			<div class="form-group">
+				<label>내용</label>
+				<textarea class="form-control" style="width: 300px;" name="content" rows="3"></textarea>
+			</div>
+			<div class="form-group">
+				<labe>시작일</label>
+				<input type="date" style="width: 300px;" class="form-control" name="start">
+			</div>
+			<div class="form-group">
+				<labe>마감일</label>
+				<input type="date" style="width: 300px;" class="form-control" name="end">
+			</div>
+			<div class="form-group">
+				<labe>HashTag</label>
+				<input type="text" style="width: 300px;" class="form-control" name="hash_tag" id="tokenfield" value=""/>
+			</div>
+			<button type="submit" class="btn btn-primary">등록하기:)</button>
+		</div>
+		<% end %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+</div>
+</section>
+
