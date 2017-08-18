@@ -1,0 +1,93 @@
+
+<section class="container py-3">
+
+<script type="text/javascript">
+
+    // $(document).ready(function()
+    // {
+    //   $("#show").click(function()
+    //   {
+    //     $("p").hide();
+    //   });
+    // });
+    
+    function display()
+    {
+      if(document.all.please.style.visibility == "hidden")
+      {
+        document.all.please.style.visibility = "visible";
+      }
+      else
+      {
+        document.all.please.style.visibility = "hidden"
+      }
+    }
+
+
+      
+</script>
+
+    <div class="pt-4 mt-2 mb-5">
+
+      <div class="pt-2 pt-sm-3 pt-lg-4 px-3 px-sm-4 px-lg-5 pb-2 pb-lg-3 mb-4 bg-white b-gray-1 br-5px d-flex flex-column font-weight-light">
+
+        <h4 class="my-2 my-lg-3 font-weight-light">
+          <%= @post.title%>
+        </h4>
+
+        <hr class="my-2 my-lg-3 w-100">
+
+        <div class="align-self-end font-size-sm">
+          <span class="ml-2 ml-md-3 ml-lg-4"><a class="text-color-slate text-color-slate-hover"><%= @post.writer %></a></span>
+          <span class="ml-2 ml-md-3 ml-lg-4"><%= @post.updated_at.in_time_zone("Seoul").strftime('%c') %></span>
+          <span class="ml-2 ml-md-3 ml-lg-4"><%= @post.unique_impression_count %>명 읽음</span>
+        </div>
+
+
+        <div class="my-3">
+          <p><%= @post.content %></p>
+
+        </div>
+
+        <div class="align-self-end font-weight-light font-size-sm">
+          
+          
+          <a class="my-2 ml-2 ml-md-3 text-color-slate" href="/post/<%=@post.id%>/edit">수정하기</a>
+          <a class="my-2 ml-2 ml-md-3 text-color-slate" href="/post/<%=@post.id%>/delete">삭제하기</a>
+          <a class="my-2 ml-2 ml-md-3 text-color-slate" href="/post/index">목록으로</a>
+        </div>
+
+        <!-- comments -->
+
+        <div class="mt-2 font-size-sm" id="testt">
+          댓글 <span id="comments-count-Post-98">0</span>
+        </div>
+
+        <hr class="my-2 my-lg-3 w-100">
+
+        <div id="post-comments-Post-98">
+          
+        </div>
+      </div>
+
+
+      <form class="new_comment" id="new_comment" action="/comments" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="✓">
+
+        <input type="hidden" value="98" name="comment[commentable_id]" id="comment_commentable_id">
+        <input type="hidden" value="Post" name="comment[commentable_type]" id="comment_commentable_type">
+
+        <div class="text-left ml-4">
+          <input type="button" id="show" onclick="display()"; name="commit" value="답변하기:)" class="btn btn-thin btn-secondary" data-disable-with="답변하기:)">
+        </div>
+        
+        <div id="please" style="visibility:hidden">
+          
+          
+        </div>
+
+
+</form>
+    </div>
+
+</section>
+
