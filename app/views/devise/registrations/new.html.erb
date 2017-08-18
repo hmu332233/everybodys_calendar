@@ -1,0 +1,151 @@
+<style>
+
+#intro {
+    height: 100%;
+}
+
+body{
+  background-color: #f8f9fa;
+}
+
+</style>
+<body>
+<!--  <section id="intro" class="d-flex flex-column justify-content-center align-items-center">-->
+
+<!--    <div class="my-5 intro-subtitle font-weight-thin font-italic hidden-md-down">-->
+<!--       <h2>Sign up</h2>-->
+<!--    </div>-->
+
+<!--    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>     <div class="form-group">-->
+<!--      <%= devise_error_messages! %>-->
+<!--        <div class="field">-->
+<!--          <%= f.label :email, class: "text-uppercase" %><br />-->
+<!--          <%= f.email_field :email, autofocus: true, class: "form-control form-control-lg", placeholder: "Enter Your E-Mail." %>-->
+<!--        </div>-->
+
+<!--        <div class="field">-->
+<!--          <%= f.label :password, class: "text-uppercase" %><br />-->
+<!--          <% if @minimum_password_length %>-->
+<!--          <em>(<%= @minimum_password_length %> characters minimum)</em>-->
+<!--          <% end %><br />-->
+<!--          <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-lg", tabindex: "2", placeholder: "Enter Your Password." %>-->
+<!--        </div>-->
+        
+<!--        <div class="field">-->
+<!--          <%= f.label :password_confirmation, class: "text-uppercase" %><br />-->
+<!--          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control form-control-lg", tabindex: "2", placeholder: "Check Your Password." %>-->
+<!--        </div>-->
+
+
+<!--        <div class="actions text-center">-->
+<!--            <%= f.submit "Sign up",  class: "text-uppercase btn btn-secondary" %>-->
+<!--        </div>-->
+<!--        <%= render "devise/shared/links" %>-->
+<!--      </div>-->
+      
+<!--    <% end %>-->
+<!--</section>-->
+
+
+
+
+<body>
+
+<div class="container pt-3 mb-5">
+    <div class="row">
+        <div class="col-12 col-sm-10 mx-auto mt-5">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-3">
+                    <h1 class="mb-3"><strong>모캘 계정을 만드세요!</strong></h1>
+                </div>
+                <div class="col-lg-3">
+                  </div>
+                <div class="col-lg-6">
+
+                    <div class="card" id="card_sponsor">
+                        <div class="card-body">
+                            <div class="row p-3">
+                                <div class="col-12">
+                                
+                                
+                                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>     <div class="form-group">
+                                  <%= devise_error_messages! %>
+                                    
+                                    <div class="field">
+                                      <%= f.label :'이름', class: "text-uppercase" %><br />
+                                      <%= f.text_field :name, autofocus: true, class: "form-control form-control-lg", placeholder: "Enter Your Name." %>
+                                    </div>
+                                    
+                                    <div class="field">
+                                      <%= f.label :email, class: "text-uppercase" %><br />
+                                      <%= f.email_field :email, autofocus: true, class: "form-control form-control-lg", placeholder: "Enter Your E-Mail." %>
+                                    </div>
+                            
+                                    <div class="field">
+                                      <%= f.label :password, class: "text-uppercase" %><br />
+                                      <% if @minimum_password_length %>
+                                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                                      <% end %><br />
+                                      <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-lg", tabindex: "2", placeholder: "Enter Your Password." %>
+                                    </div>
+                                    
+                                    <div class="field">
+                                      <%= f.label :password_confirmation, class: "text-uppercase" %><br />
+                                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control form-control-lg", tabindex: "2", placeholder: "Check Your Password." %>
+                                    </div>
+                            
+                            
+                                    <div class="actions text-center">
+                                        <%= f.submit "Sign up",  class: "text-uppercase btn btn-secondary" %>
+                                    </div>
+                                    <%= render "devise/shared/links" %>
+                                  </div>
+                                  
+                                <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                  </div>
+                  <div class="col-lg-3">
+                    </div>
+                </div>
+            </div><!--/row-->
+        </div><!--col-->
+    </div><!--row-->
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <ul style="text-align: center" class="list-inline">
+          <li class="list-inline-item">
+            <a style="color:#FF7661" href="#">Main view</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a  style="color:#FF7661" href="#about">일정등록</a>
+          </li>
+          <li class="footer-menu-divider list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a  style="color:#FF7661" href="#services">Q&A</a>
+          </li>
+         
+        </ul>
+        <p style="text-align: center" class="copyright text-muted small">Developed by Min woong,  Sang min,  Na young,  Seung mi</p>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
