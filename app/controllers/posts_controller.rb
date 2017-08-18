@@ -21,17 +21,17 @@ end
     
     Post.create(title: _title, writer: _writer, content: _content)
     
-    redirect_to "/posts/index"
+    redirect_to "/posts"
     
   end
   
-  def delete
+  def destroy
     id = params[:id]
     
     post = Post.find(id)
     post.delete
     
-    redirect_to "/posts/index"
+    redirect_to "/posts"
     
   end
   
@@ -51,7 +51,7 @@ end
     post = Post.find(_id)
     
     post.update(title: _title, writer: _writer, content: _content)
-    redirect_to "/posts/index"
+    redirect_to "/posts"
   end
   
   def new
@@ -62,8 +62,7 @@ end
     
     @post = Post.find(id)
   end
-  
- 
+
 
   
   

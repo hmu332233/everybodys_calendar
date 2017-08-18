@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  get 'posts/index'
-  get 'posts/new'
-  get 'posts/create'
   
-  get 'posts/:id' => 'posts#show'
-
-  get '/posts/:id/edit'=> 'posts#edit'
-  get '/posts/:id/update' => 'posts#update'
-  get '/posts/:id/delete' => 'posts#delete'
-
   
+  
+  resources :posts
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.

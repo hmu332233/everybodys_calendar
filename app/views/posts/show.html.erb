@@ -31,8 +31,8 @@
 		</div>
 		<div class="align-self-end font-weight-light font-size-sm">
 			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/<%=@post.id%>/edit">수정하기</a>
-			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/<%=@post.id%>/delete">삭제하기</a>
-			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts/index">목록으로</a>
+			 <td><%= link_to '삭제하기', "/posts/#{@post.id}", method: "DELETE", class:"my-2 ml-2 ml-md-3 text-color-slate"%></td>
+			<a class="my-2 ml-2 ml-md-3 text-color-slate" href="/posts">목록으로</a>
 		</div>
 		<!-- comments -->
 		<div class="mt-2 font-size-sm" id="testt">
@@ -54,19 +54,19 @@
 		<%= form_tag("/events", method: "post") do %>
 		<div id="reply" style="visibility:hidden" class="ml-4 mt-4">
 			<div class="form-group">
-				<input type="hidden" name="calendar_id" value="<%=@calendar_id %>"> <label>Title</label>
+				<input type="hidden" name="calendar_id" value="<%=@calendar_id %>"> <label>제목</label>
 				<input type="text"  style="width: 300px;" class="form-control" name="title">
 			</div>
 			<div class="form-group">
-				<label>content</label>
+				<label>내용</label>
 				<textarea class="form-control" style="width: 300px;" name="content" rows="3"></textarea>
 			</div>
 			<div class="form-group">
-				<labe>Start</label>
+				<labe>시작일</label>
 				<input type="date" style="width: 300px;" class="form-control" name="start">
 			</div>
 			<div class="form-group">
-				<labe>End</label>
+				<labe>마감일</label>
 				<input type="date" style="width: 300px;" class="form-control" name="end">
 			</div>
 			<div class="form-group">

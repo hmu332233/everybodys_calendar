@@ -1,5 +1,5 @@
 <div class="container mt-3">
-<form action="/posts/<%= @post.id %>/update" method="get">
+<%= form_tag("/posts/#{@post.id}", method: "put") do %>
   <div class="form-group">
     <label for="exampleInputEmail1">제목</label>
     <input type="text" value="<%= @post.title %>" class="form-control" name="title">
@@ -17,5 +17,5 @@
   </div>
  
   <button type="submit" class="btn btn-primary" style="align-text:right">수정하기</button>
-</form>
+<%end%>
 </div>

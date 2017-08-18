@@ -1,5 +1,6 @@
 <div class="container mt-3">
-<form action="/posts/create" method="get">
+<!--<form action="/posts" method="POST">-->
+<%= form_tag("/posts", method: "post") do %>
   <div class="form-group">
     <label for="exampleInputEmail1">제목</label>
     <input type="text" class="form-control" name="title">
@@ -17,5 +18,6 @@
   </div>
  
   <button type="submit" class="btn btn-primary" style="align-text:right">작성하기</button>
-</form>
+<!--</form>-->
+<% end %>
 </div>
