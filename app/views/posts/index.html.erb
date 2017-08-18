@@ -1,0 +1,28 @@
+
+
+<div class="container mt-5">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>제목</th>
+      <th>글쓴이</th>
+      <th>날짜</th>
+      <th>조회수</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each_with_index do |post,i| %>
+    <tr>
+      <th scope="row"><%= i+1%></th>
+      <td><a href="/posts/<%= post.id %>"><%= post.title%></a></td>
+      <td><%= post.writer%></td>
+      <td><%= post.updated_at.in_time_zone("Seoul").strftime('%c') %></td>
+      <td><%= post.unique_impression_count %>명 읽음</td>
+    </tr>
+    <% end %>
+
+  </tbody>
+</table>
+<button class="btn btn-thin btn-secondary" type="button"><a href="/posts/new">질문하기:)</a></button>
+</div>
