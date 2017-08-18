@@ -1,11 +1,118 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
-<p>제목 : <%= @event.title %></p>
-<p>내용 : <%= @event.content %></p>
-<p>시작 날짜 : <%= @event.start %></p>
-<p>끝 날짜 : <%= @event.end %></p>
-<p>해시 태그 : 
-<% @event.hash_tags.each do |hash_tag| %>
-  <%= hash_tag.name%> <br/>
-<% end %>
-</p>
+<!--<h1>Events#show</h1>-->
+<!--<p>Find me in app/views/events/show.html.erb</p>-->
+<!--<p>제목 : <%= @event.title %></p>-->
+<!--<p>내용 : <%= @event.content %></p>-->
+<!--<p>시작 날짜 : <%= @event.start %></p>-->
+<!--<p>끝 날짜 : <%= @event.end %></p>-->
+<!--<p>해시 태그 : -->
+<!--<% @event.hash_tags.each do |hash_tag| %>-->
+<!--  <%= hash_tag.name%> <br/>-->
+<!--<% end %>-->
+<!--</p>-->
+
+<!--<div class="container">-->
+<!--        <h2 class="text-center"><%= @event.title %></h2>-->
+<!--        <hr class="star-primary">-->
+<!--        <div class="row">-->
+<!--          <div class="col-lg-8 mx-auto">-->
+            <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+            <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+<!--            <form name="sentMessage" id="contactForm" novalidate="">-->
+<!--              <div class="control-group">-->
+<!--                <div class="form-group floating-label-form-group controls">-->
+<!--                  <label>내용</label>-->
+<!--                  <input class="form-control" id="name" type="text" value="<%= @event.content %>" required="" data-validation-required-message="Please enter your name." aria-invalid="false">-->
+<!--                  <p class="help-block text-danger"></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="control-group">-->
+<!--                <div class="form-group floating-label-form-group controls">-->
+<!--                  <label>시작 날짜</label>-->
+<!--                  <input class="form-control" id="email" type="email" value="<%= @event.start %>" required="" data-validation-required-message="Please enter your email address.">-->
+<!--                  <p class="help-block text-danger"></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="control-group">-->
+<!--                <div class="form-group floating-label-form-group controls">-->
+<!--                  <label>끝 날짜</label>-->
+<!--                  <input class="form-control" id="phone" type="tel" value="<%= @event.end %>" required="" data-validation-required-message="Please enter your phone number.">-->
+<!--                  <p class="help-block text-danger"></p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="control-group">-->
+                  
+                  
+<!--                <div class="form-group floating-label-form-group controls">-->
+<!--                  <label>해시태그</label>-->
+<!--                  <p> : <% @event.hash_tags.each do |hash_tag| %> <%= hash_tag.name%> <br/> <% end %> </p>-->
+                
+<!--              </div>-->
+<!--              <br>-->
+<!--              <div id="success"></div>-->
+<!--              <div class="form-group">-->
+<!--                <button type="submit" class="btn btn-success btn-lg">Send</button>-->
+<!--              </div>-->
+<!--            </form>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading"><%= @event.title %></h2>
+            <hr class="primary">
+            
+            <div class="row">
+             <div class="col" style="text-align:right;">
+                <i class="material-icons">face</i>
+             </div>
+             <div class="col" style="text-align:left;">
+                내용 :
+             </div>
+            <div class="col" style="text-align:left;">
+                  <%= @event.content %></div>
+           </div>
+           
+           <div class="row" style="mt-3">
+             <div class="col" style="text-align:right;">
+                <i class="material-icons">face</i>
+             </div>
+             <div class="col" style="text-align:left;">
+                시작 날짜 :
+             </div>
+            <div class="col" style="text-align:left;">
+                  <%= @event.start %></div>
+           </div>
+           
+           <div class="row">
+             <div class="col" style="text-align:right;">
+                <i class="material-icons">face</i>
+             </div>
+             <div class="col" style="text-align:left;">
+                끝 날짜 : 
+             </div>
+            <div class="col" style="text-align:left;">
+                  <%= @event.end %></div>
+           </div>
+           
+           <div class="row">
+             <div class="col" style="text-align:right;">
+                <i class="material-icons">face</i>
+             </div>
+             <div class="col" style="text-align:left;">
+                해시태그 :
+             </div>
+             
+             
+            <div class="col" style="text-align:left;">
+                <% @event.hash_tags.each do |hash_tag| %>
+                  <p><%= hash_tag.name%></p>
+                  <%end%>
+                  </div>
+                  
+           </div>
+           
+
+    </section>

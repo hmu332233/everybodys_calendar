@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20170816103915) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type"
     t.integer  "impressionable_id"
@@ -57,10 +56,8 @@ ActiveRecord::Schema.define(version: 20170816103915) do
     t.text     "message"
     t.text     "referrer"
     t.text     "params"
-
     t.datetime "created_at"
     t.datetime "updated_at"
-
   end
 
   add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index"
