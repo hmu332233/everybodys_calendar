@@ -37,11 +37,31 @@
 		</div>
 		<!-- comments -->
 		<div class="mt-2 font-size-sm" id="testt">
-			 댓글 <span id="comments-count-Post-98">0</span>
+			 답변 <span id="comments-count-Post-98"><%= @post.comments.size %></span>
 		</div>
 		<hr class="my-2 my-lg-3 w-100">
-		<div id="post-comments-Post-98">
+		<% @post.comments.each do |comment| %>
+		<div id="post-comments-Post-101">
+			<div class="comments">
+				<div class="mx-1 mx-sm-2 mb-2 d-flex flex-row">
+					<div class="mr-2 font-weight-normal">
+						<a class="text-color-slate text-color-slate-hover" ><%= comment.writer %></a>
+					</div>
+					<div class="align-self-end font-size-sm">
+						 <%= comment.created_at %>
+					</div>
+					<div id="comment-buttons-Post-101-992" class="ml-auto align-self-end font-size-sm">
+					</div>
+				</div>
+				<div class="mx-1 mx-sm-2">
+					<p id="comment-contents-Post-101-992" class="d-flex flex-row">
+						 날짜 : <%= comment.content %>
+					</p>
+				</div>
+			</div>
+			<hr class="my-2 my-lg-3 w-100">
 		</div>
+		<% end %>
 	</div>
 	<form class="new_comment" id="new_comment" action="/comments" accept-charset="UTF-8" data-remote="true" method="post">
 		<input name="utf8" type="hidden" value="✓">
@@ -50,12 +70,13 @@
 		<div class="text-left ml-4">
 			<input type="button" id="show" onclick="display()" ; name="commit" value="답변하기:)" class="btn btn-thin btn-secondary" data-disable-with="답변하기:)">
 		</div>
-			</form>
+	</form>
 		
 		<%= form_tag("/events", method: "post") do %>
 		<div id="reply" style="visibility:hidden" class="ml-4 mt-4">
+			<input type=hidden name="post_id" value="<%= @post.id%>" >
 			<div class="form-group">
-				<input type="hidden" name="calendar_id" value="<%=@calendar_id %>"> <label>제목</label>
+				<input type="hidden" name="calendar_id" value="<%= @post.calendar.id %>"> <label>제목</label>
 				<input type="text"  style="width: 300px;" class="form-control" name="title">
 			</div>
 			<div class="form-group">

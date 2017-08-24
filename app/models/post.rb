@@ -1,6 +1,9 @@
 class Post < ActiveRecord::Base
 
     has_many :impressions, :as=>:impressionable
+    belongs_to :user
+    belongs_to :calendar
+    has_many :comments
  
 def impression_count
     impressions.size

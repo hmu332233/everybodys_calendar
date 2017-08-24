@@ -19,6 +19,9 @@ class EventsController < ApplicationController
   end
 
   def create
+    
+    _post_id = params[:post_id]
+    
     _calendar_id = params[:calendar_id]
     _title = params[:title]
     _content = params[:content]
@@ -32,7 +35,13 @@ class EventsController < ApplicationController
     event.hash_tags = hash_tags
     event.save
     
-    redirect_to calendar_path(_calendar_id)
+    if _post_id.nil?
+      redirect_to calendar_path(_calendar_id)
+    else
+      saveComment(event, _post_id)
+      redirect_to post_path(_post_id)
+    end
+    
   end
 
   def edit
@@ -50,5 +59,11 @@ class EventsController < ApplicationController
     end
     events.uniq!{|e| e.id }
     render json: events.to_json
+  end
+  
+  def saveComment(event, post_id)
+    
+    Comment.create(content: "#{event.start} - #{event.end}", writer: current_user.name, post_id: post_id)
+    
   end
 end

@@ -61,6 +61,9 @@ end
     id = params[:id]
     
     @post = Post.find(id)
+    
+    
+render layout: "calendars"
   end
 
 

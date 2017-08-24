@@ -1,4 +1,6 @@
-
+<style>
+  
+</style>
 <html lang="en">
 
   <head>
@@ -22,11 +24,11 @@
               </div>
               <br><br>
               <% if user_signed_in? %>
-                <%= link_to 'Enter', destroy_user_session_path, method: 'delete', class: "btn btn-outline btn-xl ml-5 mr-5" %>
-                <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "btn btn-outline btn-xl ml-5" %>
+                <%= link_to 'Enter', calendars_path, class: "btn btn-outline btn-xl ml-5 mr-5", style: "color: #000"  %>
+                <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "btn btn-outline btn-xl ml-5", style: "color: #000"  %>
               <% else %>
-                <%= link_to 'Sign in', new_user_session_path,  class: "btn btn-outline btn-xl ml-5 mr-5" %>
-                <%= link_to 'Sign up', new_user_registration_path,  class: "btn btn-outline btn-xl ml-5" %>
+                <%= link_to 'Sign in', new_user_session_path,  class: "btn btn-outline btn-xl ml-5 mr-5", style: "color: #000" %>
+                <%= link_to 'Sign up', new_user_registration_path,  class: "btn btn-outline btn-xl ml-5", style: "color: #000" %>
               <% end %>
               <br><br><br><br><br><br><br><br>
             </div>

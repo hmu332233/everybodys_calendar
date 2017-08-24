@@ -40,7 +40,7 @@ function initCalendar(_calendar_id){
       setCalendar(data);
     },
     error: function(){
-      alert("fail");
+      // alert("fail");
     }
   });   
 };
@@ -79,7 +79,7 @@ function updatedByHashTag(_calendar_id,hash_tags){
       updateEvents(data);
     },
     error: function(){
-      alert("fail");
+      // alert("fail");
     }
   });   
 };

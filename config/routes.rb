@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
+  get 'comments/update'
+
+  get 'comments/delete'
+
   root 'posts#index'
   devise_for :users
 

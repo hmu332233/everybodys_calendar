@@ -6,8 +6,9 @@ class CalendarsController < ApplicationController
 
   def show
     @calendar_id = params[:id]
-    
+   
     @calendar = Calendar.find(@calendar_id)
+    @posts = @calendar.posts
   end
 
   def create
